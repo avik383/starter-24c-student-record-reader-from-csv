@@ -1,10 +1,11 @@
 #include "solution.hpp"
+
 #include <fstream>
-#include "student.hpp"
 #include <string>
 
-Student ReadStudentRecFromStream(std::istream& is) {
+#include "student.hpp"
 
+Student ReadStudentRecFromStream(std::istream& is) {
   // Create the storage variables
   std::string first_name("");
   std::string last_name("");
@@ -13,7 +14,7 @@ Student ReadStudentRecFromStream(std::istream& is) {
   double gpa = 0;
 
   // Read the line, assign values to variables
-  is >> first_name >> last_name >> place_holder >> uin >> gpa;
+  is >> first_name >> last_name >> place_holder >> uin >> place_holder >> gpa;
 
   // Check if input file stream failed
   if (is.fail()) return Student{};
@@ -23,5 +24,4 @@ Student ReadStudentRecFromStream(std::istream& is) {
 
   // Return student
   return Student{name, uin, gpa};
-
 }
